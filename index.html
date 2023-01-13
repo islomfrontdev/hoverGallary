@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .gallary {
+        display: flex;
+        width: 500px;
+        margin: 100px auto;
+      }
+      .gallary img {
+        min-width: 0;
+        height: 200px;
+        object-fit: cover;
+        opacity: 0.5;
+        flex: 1 1 10px;
+        transition: all 0.5s;
+      }
+      .gallary img:hover {
+        opacity: 1;
+        flex: 1 1 250px;
+      }
+      img.active {
+        opacity: 1;
+        flex: 1 1 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallary">
+      <img src="./img1.webp" alt="" />
+      <img src="./img2.jpg" alt="" />
+      <img class="active" src="./img3.webp" alt="" />
+      <img src="./img4.webp" alt="" />
+      <img src="./img5.png" alt="" />
+    </div>
+    <script>
+      let gallary = document.querySelector(".gallary");
+      let images = document.querySelectorAll("img");
+      gallary.onmouseover = () => {
+        images.forEach((image) => {
+          image.classList.remove("active");
+        });
+      };
+      gallary.onmouseleave = () => {
+        images[2].classList.add("active");
+      };
+    </script>
+  </body>
+</html>
